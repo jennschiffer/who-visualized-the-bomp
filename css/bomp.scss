@@ -1,0 +1,231 @@
+* { margin: 0; padding: 0; position: relative; }
+
+#room {
+  width: 800px;
+  height: 400px; 
+  border-bottom: 10px solid #999;
+  background-color: #000;
+  #decor {
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    .wall {
+      float: left;
+      background-color: #97A4A9;
+      box-shadow: inset 0 5px 20px #000;
+      &#back-wall {
+        width: 85%;
+        height: 75%;
+      }
+      &#front-wall {
+        width: 15%;
+        height: 100%;
+        background-color: #DFE6DF;
+        box-shadow: none;
+        float: right;
+      }
+    }
+    
+    #knob {
+      background-color: #343233;
+      width: 10px;
+      height: 5px;
+      border-radius: 0px 3px 3px 0px;
+      box-shadow: 2px 2px 5px #333;
+      position: absolute;
+      left: 0px;
+      top: 200px;
+    }
+    
+    #screen {
+      background-color: #A2242A;
+      width: 60%;
+      height: 100%;
+      margin: 0 auto;
+      border-bottom: 5px solid #fff;
+      z-index: 1;
+    }
+    
+    #ladder {
+      width: 20%;
+      height: 100%;
+      left: 5px;      
+      
+      .rail,
+      .rung {
+        background-color: #65362D;
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+      }
+      
+      .rail {
+        width: 5px;
+        height: 105%;
+        
+        &.right {
+          left: 100%;
+          right: 0;
+        }
+      }
+      
+      .rung {
+        width: 100%;
+        height: 4px;
+        
+        &.one {
+          top: 20px;
+        }        
+        &.two {
+          top: 60px;
+        }        
+        &.three {
+          top: 105px;
+        }        
+        &.four {
+          top: 150px;
+        }       
+        &.five {
+          top: 200px;
+        }        
+        &.six {
+          top: 250px;
+        }        
+        &.seven {
+          top: 300px;
+        }
+      }
+
+    }
+    
+    #floor {
+      float: left;
+      width: 85%;
+      height: 25%;
+      background-color: #967D31;
+    }
+  }
+  
+  #dancers {
+    position: absolute;
+    top: 35px;
+    .dancer {
+      position: absolute;
+      left: 275px;
+      z-index: 2;
+      &.right {
+        left: 425px;
+      }
+      
+      .head {
+        left: 22px;
+        .hat {
+          background-color: #FDF16B;
+          width: 30px;
+          height: 25px;
+          border-radius: 10px 10px 0 0;
+        }
+        .face {
+          background-color: #E27F68;
+          width: 30px;
+          height: 25px;
+          border-radius: 0 0 50px 50px;
+          .glasses {
+            background-color: black;
+            width: 28px;
+            height: 12px;
+            border-radius: 2px 2px 10px 10px;
+            left: 1px;
+          }
+        }
+      }
+      
+      .torso {
+        background-color: #9C5B3D;
+        width: 70px;
+        height: 150px;
+      }
+      
+      .arm {
+        position: absolute;
+        top: 50px;
+        .bicep {
+          background-color: #9C5B3D;
+          width: 23px;
+          height: 55px;
+          border-radius: 50px 0 0 0;
+        }
+        .forearm {
+          background-color: #9C5B3D;
+          width: 20px;
+          height: 50px;
+        }
+        .hand {
+          background-color: #999;
+          width: 15px;
+          height: 25px;
+          left: 3px;
+        }
+        
+        &.left {
+          left: -23px;
+        }
+        
+        &.right {
+          right: -23px;
+          .bicep {
+            border-radius: 0 50px 0 0;
+          }
+          .forearm {
+            left: 3px;
+          }
+          .hand {
+            background-color: #E27F68;
+            left: 5px;
+          }
+        }      
+      }
+      
+      
+      .leg {
+        position: absolute;
+        top: 200px;
+        .thigh {
+          background-color: #9C5B3D;
+          width: 30px;
+          height: 55px;
+        }
+        .calf {
+          background-color: #9C5B3D;
+          width: 30px;
+          height: 45px;
+        }
+        .foot {
+          background-color: #D62418;
+          width: 19px;
+          height: 20px;
+          left: 6px;
+          border-top: 4px solid #fff;
+        }
+        
+        &.left {
+          left: 0;
+        }
+        
+        &.right {
+          right: 0; 
+          .thigh {
+          
+          }
+          .calf {
+            
+          }
+          .foot {
+            
+          }
+        }
+      }
+      
+    }
+  }
+}

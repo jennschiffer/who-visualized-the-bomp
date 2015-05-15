@@ -1,0 +1,14 @@
+{
+  "name": "who-visualized-the-bomp",
+  "version": "0.0.1",
+  "description": "a key-event-driven web visualization based on le tigre's 'deceptacon' music video",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jennschiffer/timbles.js.git"
+  },
+  "devDependencies": {
+      "grunt": "*",
+      "grunt-contrib-sass": "*",
+      "grunt-contrib-watch": "*"
+  }
+}
