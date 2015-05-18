@@ -139,13 +139,11 @@
           }
         }
       }
-      
       .torso {
         background-color: #9C5B3D;
         width: 70px;
         height: 150px;
       }
-      
       .arm {
         position: absolute;
         top: 50px;
@@ -185,8 +183,6 @@
           }
         }      
       }
-      
-      
       .leg {
         position: absolute;
         top: 200px;
@@ -225,7 +221,19 @@
           }
         }
       }
-      
     }
   }
+}
+
+/* dance moves */
+.marquee {
+  -moz-animation: marquee 4s infinite linear;
+}
+
+@-moz-keyframes marquee {
+  0% { left: 0;}
+  25% { left: 130px; }
+  50% { left: 0; }
+  75% { left: -130px; }
+  100% { left: 0; }
 }

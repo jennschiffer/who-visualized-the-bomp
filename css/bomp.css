@@ -160,4 +160,20 @@
         #room #dancers .dancer .leg.right {
           right: 0; }
 
+/* dance moves */
+.marquee {
+  -moz-animation: marquee 4s infinite linear; }
+
+@-moz-keyframes marquee {
+  0% {
+    left: 0; }
+  25% {
+    left: 130px; }
+  50% {
+    left: 0; }
+  75% {
+    left: -130px; }
+  100% {
+    left: 0; } }
+
 /*# sourceMappingURL=bomp.css.map */
