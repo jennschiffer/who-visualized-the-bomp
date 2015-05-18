@@ -228,7 +228,7 @@
 
 .bop-head {
   .head {
-    -moz-animation: headbop 1s infinite linear;
+    -moz-animation: headbop 600ms infinite linear;
   }
 }
 
@@ -247,7 +247,7 @@
 
 .bend-legs {
   .dancer {
-    -moz-animation: body-rock 1s infinite linear;
+    -moz-animation: body-rock 600ms infinite linear;
   }
   .thigh {
     height: 60px!important;
@@ -256,11 +256,11 @@
     top: -30px;
   }
   .left > .calf {
-    -moz-animation: legbend-left 1s infinite linear;
+    -moz-animation: legbend-left 600ms infinite linear;
   }
   .right > .calf {
     transform: rotateX(-90deg);
-    -moz-animation: legbend-right 1s infinite linear;
+    -moz-animation: legbend-right 600ms infinite linear;
   }
 }
 

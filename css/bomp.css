@@ -170,7 +170,7 @@
   -moz-animation: marquee 4s infinite linear; }
 
 .bop-head .head {
-  -moz-animation: headbop 1s infinite linear; }
+  -moz-animation: headbop 600ms infinite linear; }
 
 .bend-arms .forearm {
   top: -25px; }
@@ -181,16 +181,16 @@
   -moz-animation: armbend-right 600ms infinite linear; }
 
 .bend-legs .dancer {
-  -moz-animation: body-rock 1s infinite linear; }
+  -moz-animation: body-rock 600ms infinite linear; }
 .bend-legs .thigh {
   height: 60px !important; }
 .bend-legs .calf {
   top: -30px; }
 .bend-legs .left > .calf {
-  -moz-animation: legbend-left 1s infinite linear; }
+  -moz-animation: legbend-left 600ms infinite linear; }
 .bend-legs .right > .calf {
   transform: rotateX(-90deg);
-  -moz-animation: legbend-right 1s infinite linear; }
+  -moz-animation: legbend-right 600ms infinite linear; }
 
 @-moz-keyframes marquee {
   0% {
