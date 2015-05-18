@@ -3,9 +3,13 @@
   padding: 0;
   position: relative; }
 
+body {
+  background-color: #123456; }
+
 #room {
   width: 800px;
   height: 400px;
+  margin: 20px auto;
   border-bottom: 10px solid #999;
   background-color: #000; }
   #room #decor {
@@ -53,7 +57,7 @@
         bottom: -5px; }
       #room #decor #ladder .rail {
         width: 5px;
-        height: 105%; }
+        height: 101.5%; }
         #room #decor #ladder .rail.right {
           left: 100%;
           right: 0; }
@@ -191,6 +195,9 @@
 .bend-legs .right > .calf {
   transform: rotateX(-90deg);
   -moz-animation: legbend-right 600ms infinite linear; }
+
+.fun #screen {
+  background: url("../assets/cat.gif") bottom center; }
 
 @-moz-keyframes marquee {
   0% {

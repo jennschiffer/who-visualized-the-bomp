@@ -1,6 +1,7 @@
 $(function(){
   
   var DOM = {
+    decor: $('#decor'),
     dancers: $('#dancers'),
     dancerLeft: $('.dancer.left'),
     dancerRight: $('.dancer.right'),
@@ -11,12 +12,16 @@ $(function(){
     bendArms: 'bend-arms',
     bendLegs: 'bend-legs',
     sideKick: 'side-kick',
-    bopHead: 'bop-head'
-  }
+    bopHead: 'bop-head',
+    fun: 'fun'
+  };
   
-  var playSound, dataArray, bufferLength, count;
+  var playSound, playNoise, dataArray, bufferLength, count;
   var midiBuffer = null;
-  var audioURL = 'audio/aha.mp3';
+  var noiseBuffer = null;
+  var audioURL = 'assets/aha.mp3';
+  var hornURL = 'assets/airhorn.mp3';
+  var damnURL = 'assets/damn.mp3';
   var audioTime = 0;
   var audioOffset = 0;
   var audioPlaying = false;
@@ -30,7 +35,7 @@ $(function(){
   
   var bopHead = function(){
     DOM.dancers.toggleClass(classes.bopHead);
-  }
+  };
     
   var bendArms = function(){
     DOM.dancers.toggleClass(classes.bendArms);
@@ -44,38 +49,63 @@ $(function(){
   var stopDancing = function(){
     // remove all classes
     DOM.dancers.attr('class', null);
+    DOM.decor.attr('class', null);
+  };
+  
+  var galaxyCat = function(){
+    DOM.decor.toggleClassssc(classes.fun);
+  };
+  
+  var airHorn = function(){
+    playNoise = noiseCtx.createBufferSource();
+    playNoise.buffer = airhornBuffer;
+    playNoise.connect(noiseCtx.destination);
+    playNoise.start(0);
+
+  };
+  
+  var damnSon = function(){
+    playNoise = noiseCtx.createBufferSource();
+    playNoise.buffer = damnBuffer;
+    playNoise.connect(noiseCtx.destination);
+    playNoise.start(0);
   };
   
   
   
   /* web audio fun */
   
-  var loadAudio = function(url) {
+  var loadAudio = function(url, ctx, sound) {
     var request = new XMLHttpRequest();
-    request.open('GET', audioURL, true);
+    request.open('GET', url, true);
     request.responseType = 'arraybuffer';
   
     request.onload = function() {
-      audioCtx.decodeAudioData(request.response, function(buffer) {
-        midiBuffer = buffer;
+      ctx.decodeAudioData(request.response, function(buffer) {
+        if ( sound == 'song' ) {
+          midiBuffer = buffer;
+        }
+        else if ( sound == 'airhorn' ) {
+            airhornBuffer = buffer;
+          }
+          else {
+            damnBuffer = buffer;
+          }
       });
       
       // debug - load audio
       console.log('audio loaded');
-    }
+    };
     request.send();
   };
 
-  
   var playSong = function(){
     audioTime = audioCtx.currentTime;
     playSound = audioCtx.createBufferSource();
     playSound.buffer = midiBuffer;
     playSound.connect(audioCtx.destination);
     playSound.start(0, audioOffset);
-    
-    playSound.connect(analyser);
-    
+        
     DOM.dancers.attr('class', currentMoves);
   };
   
@@ -88,9 +118,11 @@ $(function(){
   // web audio api turn upppp
   window.AudioContext = window.AudioContext || window.webkitAudioContext;
   var audioCtx = new AudioContext();
-  var analyser = audioCtx.createAnalyser();
+  var noiseCtx = new AudioContext();
   
-  loadAudio(audioURL);
+  loadAudio(audioURL, audioCtx, 'song');
+  loadAudio(hornURL, noiseCtx, 'airhorn');
+  loadAudio(damnURL, noiseCtx, 'damn son');
   
   
   
@@ -143,6 +175,27 @@ $(function(){
           audioPlaying = false;
           pauseSong();
           stopDancing();
+        }
+        break;
+        
+      case 115:
+        // s
+        if (audioPlaying) {
+          galaxyCat();
+        }
+        break;
+        
+      case 99:
+        // c
+        if (audioPlaying) {
+          airHorn();
+        }
+        break;
+        
+      case 104:
+        // h
+        if (audioPlaying) {
+          damnSon();
         }
         break;
     }
