@@ -81,7 +81,7 @@
       background-color: #967D31; }
   #room #dancers {
     position: absolute;
-    top: 35px; }
+    top: 45px; }
     #room #dancers .dancer {
       position: absolute;
       left: 275px;
@@ -89,7 +89,9 @@
       #room #dancers .dancer.right {
         left: 425px; }
       #room #dancers .dancer .head {
-        left: 22px; }
+        left: 22px;
+        top: 3px;
+        z-index: 3; }
         #room #dancers .dancer .head .hat {
           background-color: #FDF16B;
           width: 30px;
@@ -98,7 +100,7 @@
         #room #dancers .dancer .head .face {
           background-color: #E27F68;
           width: 30px;
-          height: 25px;
+          height: 28px;
           border-radius: 0 0 50px 50px; }
           #room #dancers .dancer .head .face .glasses {
             background-color: black;
@@ -109,7 +111,8 @@
       #room #dancers .dancer .torso {
         background-color: #9C5B3D;
         width: 70px;
-        height: 150px; }
+        height: 150px;
+        top: -3px; }
       #room #dancers .dancer .arm {
         position: absolute;
         top: 50px; }
@@ -126,7 +129,8 @@
           background-color: #999;
           width: 15px;
           height: 25px;
-          left: 3px; }
+          left: 3px;
+          bottom: -50px; }
         #room #dancers .dancer .arm.left {
           left: -23px; }
         #room #dancers .dancer .arm.right {
@@ -144,16 +148,17 @@
         #room #dancers .dancer .leg .thigh {
           background-color: #9C5B3D;
           width: 30px;
-          height: 55px; }
+          height: 35px; }
         #room #dancers .dancer .leg .calf {
           background-color: #9C5B3D;
           width: 30px;
-          height: 45px; }
+          height: 65px; }
         #room #dancers .dancer .leg .foot {
           background-color: #D62418;
           width: 19px;
           height: 20px;
           left: 6px;
+          top: 65px;
           border-top: 4px solid #fff; }
         #room #dancers .dancer .leg.left {
           left: 0; }
@@ -163,6 +168,29 @@
 /* dance moves */
 .marquee {
   -moz-animation: marquee 4s infinite linear; }
+
+.bop-head .head {
+  -moz-animation: headbop 1s infinite linear; }
+
+.bend-arms .forearm {
+  top: -25px; }
+.bend-arms .left > .forearm {
+  -moz-animation: armbend-left 600ms infinite linear; }
+.bend-arms .right > .forearm {
+  transform: rotateX(180deg);
+  -moz-animation: armbend-right 600ms infinite linear; }
+
+.bend-legs .dancer {
+  -moz-animation: body-rock 1s infinite linear; }
+.bend-legs .thigh {
+  height: 60px !important; }
+.bend-legs .calf {
+  top: -30px; }
+.bend-legs .left > .calf {
+  -moz-animation: legbend-left 1s infinite linear; }
+.bend-legs .right > .calf {
+  transform: rotateX(-90deg);
+  -moz-animation: legbend-right 1s infinite linear; }
 
 @-moz-keyframes marquee {
   0% {
@@ -175,5 +203,43 @@
     left: -130px; }
   100% {
     left: 0; } }
+@-moz-keyframes headbop {
+  25% {
+    transform-origin: 0 50%;
+    transform: rotate(-10deg); }
+  50% {
+    transform: rotate(0deg); }
+  75% {
+    transform-origin: 50% 0;
+    transform: rotate(10deg); } }
+@-moz-keyframes armbend-left {
+  0% {
+    transform: rotateX(0deg); }
+  50% {
+    transform: rotateX(180deg); } }
+@-moz-keyframes armbend-right {
+  0% {
+    transform: rotateX(180deg); }
+  50% {
+    transform: rotateX(0deg); } }
+@-moz-keyframes body-rock {
+  25% {
+    transform-origin: 0 50%;
+    transform: rotate(1deg); }
+  50% {
+    transform: rotate(0deg); }
+  75% {
+    transform-origin: 50% 0;
+    transform: rotate(-1deg); } }
+@-moz-keyframes legbend-left {
+  0% {
+    transform: rotateX(0deg); }
+  50% {
+    transform: rotateX(-90deg); } }
+@-moz-keyframes legbend-right {
+  0% {
+    transform: rotateX(-90deg); }
+  50% {
+    transform: rotateX(0deg); } }
 
 /*# sourceMappingURL=bomp.css.map */
