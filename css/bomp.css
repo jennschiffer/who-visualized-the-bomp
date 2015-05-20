@@ -7,10 +7,10 @@ body {
   background-color: #123456; }
 
 #room {
-  width: 800px;
-  height: 400px;
-  margin: 20px auto;
-  border-bottom: 10px solid #999;
+  width: 1200px;
+  height: 600px;
+  margin: 50px auto;
+  border-bottom: 15px solid #999;
   background-color: #000; }
   #room #decor {
     width: 90%;
@@ -31,53 +31,53 @@ body {
         float: right; }
     #room #decor #knob {
       background-color: #343233;
-      width: 10px;
-      height: 5px;
-      border-radius: 0px 3px 3px 0px;
+      width: 15px;
+      height: 7.5px;
+      border-radius: 0px 4.5px 4.5px 0px;
       box-shadow: 2px 2px 5px #333;
       position: absolute;
       left: 0px;
-      top: 200px; }
+      top: 300px; }
     #room #decor #screen {
       background-color: #A2242A;
       width: 60%;
       height: 100%;
       margin: 0 auto;
-      border-bottom: 5px solid #fff;
+      border-bottom: 7.5px solid #fff;
       z-index: 1; }
     #room #decor #ladder {
       width: 20%;
       height: 100%;
-      left: 5px; }
+      left: 7.5px; }
       #room #decor #ladder .rail,
       #room #decor #ladder .rung {
         background-color: #65362D;
         position: absolute;
         left: 0;
-        bottom: -5px; }
+        bottom: -7.5px; }
       #room #decor #ladder .rail {
-        width: 5px;
+        width: 7.5px;
         height: 101.5%; }
         #room #decor #ladder .rail.right {
           left: 100%;
           right: 0; }
       #room #decor #ladder .rung {
         width: 100%;
-        height: 4px; }
+        height: 6px; }
         #room #decor #ladder .rung.one {
-          top: 20px; }
+          top: 30px; }
         #room #decor #ladder .rung.two {
-          top: 60px; }
+          top: 90px; }
         #room #decor #ladder .rung.three {
-          top: 105px; }
+          top: 157.5px; }
         #room #decor #ladder .rung.four {
-          top: 150px; }
+          top: 225px; }
         #room #decor #ladder .rung.five {
-          top: 200px; }
-        #room #decor #ladder .rung.six {
-          top: 250px; }
-        #room #decor #ladder .rung.seven {
           top: 300px; }
+        #room #decor #ladder .rung.six {
+          top: 375px; }
+        #room #decor #ladder .rung.seven {
+          top: 450px; }
     #room #decor #floor {
       float: left;
       width: 85%;
@@ -85,85 +85,85 @@ body {
       background-color: #967D31; }
   #room #dancers {
     position: absolute;
-    top: 45px; }
+    top: 67.5px; }
     #room #dancers .dancer {
       position: absolute;
-      left: 275px;
+      left: 412.5px;
       z-index: 2; }
       #room #dancers .dancer.right {
-        left: 425px; }
+        left: 637.5px; }
       #room #dancers .dancer .head {
-        left: 22px;
-        top: 3px;
+        left: 33px;
+        top: 4.5px;
         z-index: 3; }
         #room #dancers .dancer .head .hat {
           background-color: #FDF16B;
-          width: 30px;
-          height: 25px;
-          border-radius: 10px 10px 0 0; }
+          width: 45px;
+          height: 37.5px;
+          border-radius: 15px 15px 0 0; }
         #room #dancers .dancer .head .face {
           background-color: #E27F68;
-          width: 30px;
-          height: 28px;
-          border-radius: 0 0 50px 50px; }
+          width: 45px;
+          height: 42px;
+          border-radius: 0 0 75px 75px; }
           #room #dancers .dancer .head .face .glasses {
             background-color: black;
-            width: 28px;
-            height: 12px;
-            border-radius: 2px 2px 10px 10px;
-            left: 1px; }
+            width: 42px;
+            height: 18px;
+            border-radius: 3px 3px 15px 15px;
+            left: 1.5px; }
       #room #dancers .dancer .torso {
         background-color: #9C5B3D;
-        width: 70px;
-        height: 150px;
-        top: -3px; }
+        width: 105px;
+        height: 225px;
+        top: -4.5px; }
       #room #dancers .dancer .arm {
         position: absolute;
-        top: 50px; }
+        top: 75px; }
         #room #dancers .dancer .arm .bicep {
           background-color: #9C5B3D;
-          width: 23px;
-          height: 55px;
-          border-radius: 50px 0 0 0; }
+          width: 34.5px;
+          height: 82.5px;
+          border-radius: 75px 0 0 0; }
         #room #dancers .dancer .arm .forearm {
           background-color: #9C5B3D;
-          width: 20px;
-          height: 50px; }
+          width: 30px;
+          height: 75px; }
         #room #dancers .dancer .arm .hand {
           background-color: #999;
-          width: 15px;
-          height: 25px;
-          left: 3px;
-          bottom: -50px; }
+          width: 22.5px;
+          height: 37.5px;
+          left: 4.5px;
+          bottom: -75px; }
         #room #dancers .dancer .arm.left {
-          left: -23px; }
+          left: -34.5px; }
         #room #dancers .dancer .arm.right {
-          right: -23px; }
+          right: -34.5px; }
           #room #dancers .dancer .arm.right .bicep {
-            border-radius: 0 50px 0 0; }
+            border-radius: 0 75px 0 0; }
           #room #dancers .dancer .arm.right .forearm {
-            left: 3px; }
+            left: 4.5px; }
           #room #dancers .dancer .arm.right .hand {
             background-color: #E27F68;
-            left: 5px; }
+            left: 7.5px; }
       #room #dancers .dancer .leg {
         position: absolute;
-        top: 200px; }
+        top: 300px; }
         #room #dancers .dancer .leg .thigh {
           background-color: #9C5B3D;
-          width: 30px;
-          height: 35px; }
+          width: 45px;
+          height: 52.5px; }
         #room #dancers .dancer .leg .calf {
           background-color: #9C5B3D;
-          width: 30px;
-          height: 65px; }
+          width: 45px;
+          height: 97.5px; }
         #room #dancers .dancer .leg .foot {
           background-color: #D62418;
-          width: 19px;
-          height: 20px;
-          left: 6px;
-          top: 65px;
-          border-top: 4px solid #fff; }
+          width: 28.5px;
+          height: 30px;
+          left: 9px;
+          top: 97.5px;
+          border-top: 6px solid #fff; }
         #room #dancers .dancer .leg.left {
           left: 0; }
         #room #dancers .dancer .leg.right {
@@ -177,7 +177,7 @@ body {
   -moz-animation: headbop 600ms infinite linear; }
 
 .bend-arms .forearm {
-  top: -25px; }
+  top: -37.5px; }
 .bend-arms .left > .forearm {
   -moz-animation: armbend-left 600ms infinite linear; }
 .bend-arms .right > .forearm {
@@ -187,9 +187,9 @@ body {
 .bend-legs .dancer {
   -moz-animation: body-rock 600ms infinite linear; }
 .bend-legs .thigh {
-  height: 60px !important; }
+  height: 90px !important; }
 .bend-legs .calf {
-  top: -30px; }
+  top: -45px; }
 .bend-legs .left > .calf {
   -moz-animation: legbend-left 600ms infinite linear; }
 .bend-legs .right > .calf {
@@ -203,11 +203,11 @@ body {
   0% {
     left: 0; }
   25% {
-    left: 130px; }
+    left: 195px; }
   50% {
     left: 0; }
   75% {
-    left: -130px; }
+    left: -195px; }
   100% {
     left: 0; } }
 @-moz-keyframes headbop {

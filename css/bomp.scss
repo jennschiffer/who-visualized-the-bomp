@@ -1,3 +1,5 @@
+$resolution: 1.5;
+
 * { margin: 0; padding: 0; position: relative; }
 
 body { 
@@ -5,10 +7,10 @@ body {
 }
 
 #room {
-  width: 800px;
-  height: 400px; 
-  margin: 20px auto;
-  border-bottom: 10px solid #999;
+  width: 800px * $resolution;
+  height: 400px * $resolution; 
+  margin: 50px auto;
+  border-bottom: 10px * $resolution solid #999;
   background-color: #000;
   #decor {
     width: 90%;
@@ -33,13 +35,13 @@ body {
     
     #knob {
       background-color: #343233;
-      width: 10px;
-      height: 5px;
-      border-radius: 0px 3px 3px 0px;
+      width: 10px * $resolution;
+      height: 5px * $resolution;
+      border-radius: 0px 3px * $resolution 3px * $resolution 0px;
       box-shadow: 2px 2px 5px #333;
       position: absolute;
       left: 0px;
-      top: 200px;
+      top: 200px * $resolution;
     }
     
     #screen {
@@ -47,25 +49,25 @@ body {
       width: 60%;
       height: 100%;
       margin: 0 auto;
-      border-bottom: 5px solid #fff;
+      border-bottom: 5px * $resolution solid #fff;
       z-index: 1;
     }
     
     #ladder {
       width: 20%;
       height: 100%;
-      left: 5px;      
+      left: 5px * $resolution;      
       
       .rail,
       .rung {
         background-color: #65362D;
         position: absolute;
         left: 0;
-        bottom: -5px;
+        bottom: -5px * $resolution;
       }
       
       .rail {
-        width: 5px;
+        width: 5px * $resolution;
         height: 101.5%;
         
         &.right {
@@ -76,28 +78,28 @@ body {
       
       .rung {
         width: 100%;
-        height: 4px;
+        height: 4px * $resolution;
         
         &.one {
-          top: 20px;
+          top: 20px * $resolution;
         }        
         &.two {
-          top: 60px;
+          top: 60px * $resolution;
         }        
         &.three {
-          top: 105px;
+          top: 105px * $resolution;
         }        
         &.four {
-          top: 150px;
+          top: 150px * $resolution;
         }       
         &.five {
-          top: 200px;
+          top: 200px * $resolution;
         }        
         &.six {
-          top: 250px;
+          top: 250px * $resolution;
         }        
         &.seven {
-          top: 300px;
+          top: 300px * $resolution;
         }
       }
 
@@ -113,105 +115,105 @@ body {
   
   #dancers {
     position: absolute;
-    top: 45px;
+    top: 45px * $resolution;
     .dancer {
       position: absolute;
-      left: 275px;
+      left: 275px * $resolution;
       z-index: 2;
       &.right {
-        left: 425px;
+        left: 425px * $resolution;
       }
       
       .head {
-        left: 22px;
-        top: 3px;
+        left: 22px * $resolution;
+        top: 3px * $resolution;
         z-index: 3;
         .hat {
           background-color: #FDF16B;
-          width: 30px;
-          height: 25px;
-          border-radius: 10px 10px 0 0;
+          width: 30px * $resolution;
+          height: 25px * $resolution;
+          border-radius: 10px * $resolution 10px * $resolution 0 0;
         }
         .face {
           background-color: #E27F68;
-          width: 30px;
-          height: 28px;
-          border-radius: 0 0 50px 50px;
+          width: 30px * $resolution;
+          height: 28px * $resolution;
+          border-radius: 0 0 50px * $resolution 50px * $resolution;
           .glasses {
             background-color: black;
-            width: 28px;
-            height: 12px;
-            border-radius: 2px 2px 10px 10px;
-            left: 1px;
+            width: 28px * $resolution;
+            height: 12px * $resolution;
+            border-radius: 2px * $resolution 2px * $resolution 10px * $resolution 10px * $resolution;
+            left: 1px * $resolution;
           }
         }
       }
       .torso {
         background-color: #9C5B3D;
-        width: 70px;
-        height: 150px;
-        top: -3px;
+        width: 70px * $resolution;
+        height: 150px * $resolution;
+        top: -3px * $resolution;
       }
       .arm {
         position: absolute;
-        top: 50px;
+        top: 50px * $resolution;
         .bicep {
           background-color: #9C5B3D;
-          width: 23px;
-          height: 55px;
-          border-radius: 50px 0 0 0;
+          width: 23px * $resolution;
+          height: 55px * $resolution;
+          border-radius: 50px * $resolution 0 0 0;
         }
         .forearm {
           background-color: #9C5B3D;
-          width: 20px;
-          height: 50px;
+          width: 20px * $resolution;
+          height: 50px * $resolution;
         }
         .hand {
           background-color: #999;
-          width: 15px;
-          height: 25px;
-          left: 3px;
-          bottom: -50px;
+          width: 15px * $resolution;
+          height: 25px * $resolution;
+          left: 3px * $resolution;
+          bottom: -50px * $resolution;
         }
         
         &.left {
-          left: -23px;
+          left: -23px * $resolution;
         }
         
         &.right {
-          right: -23px;
+          right: -23px * $resolution;
           .bicep {
-            border-radius: 0 50px 0 0;
+            border-radius: 0 50px * $resolution 0 0;
           }
           .forearm {
-            left: 3px;
+            left: 3px * $resolution;
           }
           .hand {
             background-color: #E27F68;
-            left: 5px;
+            left: 5px * $resolution;
           }
         }      
       }
       .leg {
         position: absolute;
-        top: 200px;
+        top: 200px * $resolution;
         .thigh {
           background-color: #9C5B3D;
-          width: 30px;
-          height: 35px;
+          width: 30px * $resolution;
+          height: 35px * $resolution;
         }
         .calf {
           background-color: #9C5B3D;
-          width: 30px;
-          height: 65px;
+          width: 30px * $resolution;
+          height: 65px * $resolution;
         }
         .foot {
           background-color: #D62418;
-          width: 19px;
-          height: 20px;
-          left: 6px;
-          top: 65px;
-          border-top: 4px solid #fff;
+          width: 19px * $resolution;
+          height: 20px * $resolution;
+          left: 6px * $resolution;
+          top: 65px * $resolution;
+          border-top: 4px * $resolution solid #fff;
         }
         
         &.left {
@@ -239,7 +241,7 @@ body {
 
 .bend-arms {
   .forearm {
-    top: -25px;
+    top: -25px * $resolution;
   }
   .left > .forearm {
     -moz-animation: armbend-left 600ms infinite linear;
@@ -255,10 +257,10 @@ body {
     -moz-animation: body-rock 600ms infinite linear;
   }
   .thigh {
-    height: 60px!important;
+    height: 60px * $resolution!important;
   }
   .calf {
-    top: -30px;
+    top: -30px * $resolution;
   }
   .left > .calf {
     -moz-animation: legbend-left 600ms infinite linear;
@@ -278,9 +280,9 @@ body {
 
 @-moz-keyframes marquee {
   0% { left: 0;}
-  25% { left: 130px; }
+  25% { left: 130px * $resolution; }
   50% { left: 0; }
-  75% { left: -130px; }
+  75% { left: -130px * $resolution; }
   100% { left: 0; }
 }
 
