@@ -22,6 +22,7 @@ $(function(){
   var audioURL = 'assets/aha.mp3';
   var hornURL = 'assets/airhorn.mp3';
   var damnURL = 'assets/damn.mp3';
+  var smoothURL = 'assets/rob.mp3';
   var audioTime = 0;
   var audioOffset = 0;
   var audioPlaying = false;
@@ -71,6 +72,12 @@ $(function(){
     playNoise.start(0);
   };
   
+  var smooth = function(){
+    playNoise = noiseCtx.createBufferSource();
+    playNoise.buffer = smoothBuffer;
+    playNoise.connect(noiseCtx.destination);
+    playNoise.start(0);
+  }
   
   
   /* web audio fun */
@@ -88,9 +95,12 @@ $(function(){
         else if ( sound == 'airhorn' ) {
             airhornBuffer = buffer;
           }
-          else {
-            damnBuffer = buffer;
-          }
+          else if ( sound == 'smooth' ) {
+              smoothBuffer = buffer;
+            }
+            else {
+              damnBuffer = buffer;
+            }
       });
       
       // debug - load audio
@@ -123,6 +133,7 @@ $(function(){
   loadAudio(audioURL, audioCtx, 'song');
   loadAudio(hornURL, noiseCtx, 'airhorn');
   loadAudio(damnURL, noiseCtx, 'damn son');
+  loadAudio(smoothURL, noiseCtx, 'smooth');
   
   
   
@@ -131,7 +142,7 @@ $(function(){
   $('body').keypress(function(e){
     
     // debug - print key code
-    // console.log(e.which);
+     console.log(e.which);
     
     // choose action depending on key code
     switch ( e.which ) {
@@ -196,6 +207,13 @@ $(function(){
         // h
         if (audioPlaying) {
           damnSon();
+        }
+        break;
+        
+      case 105:
+        // i
+        if (audioPlaying) {
+          smooth();
         }
         break;
     }

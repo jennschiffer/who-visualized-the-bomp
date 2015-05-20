@@ -3,13 +3,13 @@ $resolution: 1.5;
 * { margin: 0; padding: 0; position: relative; }
 
 body { 
-  background-color: #123456;
+  background-color: magenta;
 }
 
 #room {
   width: 800px * $resolution;
   height: 400px * $resolution; 
-  margin: 50px auto;
+  margin: 20px auto;
   border-bottom: 10px * $resolution solid #999;
   background-color: #000;
   #decor {

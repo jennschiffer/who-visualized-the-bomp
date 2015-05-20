@@ -4,12 +4,12 @@
   position: relative; }
 
 body {
-  background-color: #123456; }
+  background-color: magenta; }
 
 #room {
   width: 1200px;
   height: 600px;
-  margin: 50px auto;
+  margin: 20px auto;
   border-bottom: 15px solid #999;
   background-color: #000; }
   #room #decor {
