@@ -53,7 +53,7 @@ $(function(){
   };
   
   var galaxyCat = function(){
-    DOM.decor.toggleClassssc(classes.fun);
+    DOM.decor.toggleClass(classes.fun);
   };
   
   var airHorn = function(){
