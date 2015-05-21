@@ -1,8 +1,28 @@
 $resolution: 1;
 
+@mixin vendor-prefix($name, $argument) {
+  -webkit-#{$name}: #{$argument};
+  -ms-#{$name}: #{$argument};
+  -moz-#{$name}: #{$argument};
+  -o-#{$name}: #{$argument};
+  #{$name}: #{$argument};
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
 * {  position: relative; }
 
-body { 
+body {
   background-color: lime;
 }
 
@@ -12,7 +32,7 @@ body {
 
 #room {
   width: 800px * $resolution;
-  height: 400px * $resolution; 
+  height: 400px * $resolution;
   margin: 20px auto;
   border-bottom: 10px * $resolution solid #999;
   background-color: #000;
@@ -36,7 +56,7 @@ body {
         float: right;
       }
     }
-    
+
     #knob {
       background-color: #343233;
       width: 10px * $resolution;
@@ -47,7 +67,7 @@ body {
       left: 0px;
       top: 200px * $resolution;
     }
-    
+
     #screen {
       background-color: #A2242A;
       width: 60%;
@@ -56,12 +76,12 @@ body {
       border-bottom: 5px * $resolution solid #fff;
       z-index: 1;
     }
-    
+
     #ladder {
       width: 20%;
       height: 100%;
-      left: 5px * $resolution;      
-      
+      left: 5px * $resolution;
+
       .rail,
       .rung {
         background-color: #65362D;
@@ -69,46 +89,46 @@ body {
         left: 0;
         bottom: -5px * $resolution;
       }
-      
+
       .rail {
         width: 5px * $resolution;
         height: 101.5%;
-        
+
         &.right {
           left: 100%;
           right: 0;
         }
       }
-      
+
       .rung {
         width: 100%;
         height: 4px * $resolution;
-        
+
         &.one {
           top: 20px * $resolution;
-        }        
+        }
         &.two {
           top: 60px * $resolution;
-        }        
+        }
         &.three {
           top: 105px * $resolution;
-        }        
+        }
         &.four {
           top: 150px * $resolution;
-        }       
+        }
         &.five {
           top: 200px * $resolution;
-        }        
+        }
         &.six {
           top: 250px * $resolution;
-        }        
+        }
         &.seven {
           top: 300px * $resolution;
         }
       }
 
     }
-    
+
     #floor {
       float: left;
       width: 85%;
@@ -116,7 +136,7 @@ body {
       background-color: #967D31;
     }
   }
-  
+
   #dancers {
     position: absolute;
     top: 45px * $resolution;
@@ -127,7 +147,7 @@ body {
       &.right {
         left: 425px * $resolution;
       }
-      
+
       .head {
         left: 22px * $resolution;
         top: 3px * $resolution;
@@ -179,11 +199,11 @@ body {
           left: 3px * $resolution;
           bottom: -50px * $resolution;
         }
-        
+
         &.left {
           left: -23px * $resolution;
         }
-        
+
         &.right {
           right: -23px * $resolution;
           .bicep {
@@ -196,7 +216,7 @@ body {
             background-color: #E27F68;
             left: 5px * $resolution;
           }
-        }      
+        }
       }
       .leg {
         position: absolute;
@@ -219,13 +239,13 @@ body {
           top: 65px * $resolution;
           border-top: 4px * $resolution solid #fff;
         }
-        
+
         &.left {
           left: 0;
         }
-        
+
         &.right {
-          right: 0; 
+          right: 0;
         }
       }
     }
@@ -234,12 +254,12 @@ body {
 
 /* dance moves */
 .marquee {
-  -moz-animation: marquee 4s infinite linear;
+  @include vendor-prefix(animation, marquee 4s infinite linear)
 }
 
 .bop-head {
   .head {
-    -moz-animation: headbop 600ms infinite linear;
+    @include vendor-prefix(animation, headbop 600ms infinite linear)
   }
 }
 
@@ -248,17 +268,17 @@ body {
     top: -25px * $resolution;
   }
   .left > .forearm {
-    -moz-animation: armbend-left 600ms infinite linear;
+    @include vendor-prefix(animation, armbend-left 600ms infinite linear)
   }
   .right > .forearm {
     transform: rotateX(180deg);
-    -moz-animation: armbend-right 600ms infinite linear;
+    @include vendor-prefix(animation, armbend-right 600ms infinite linear)
   }
 }
 
 .bend-legs {
   .dancer {
-    -moz-animation: body-rock 600ms infinite linear;
+    @include vendor-prefix(animation, body-rock 600ms infinite linear)
   }
   .thigh {
     height: 60px * $resolution!important;
@@ -267,11 +287,11 @@ body {
     top: -30px * $resolution;
   }
   .left > .calf {
-    -moz-animation: legbend-left 600ms infinite linear;
+    @include vendor-prefix(animation, legbend-left 600ms infinite linear)
   }
   .right > .calf {
     transform: rotateX(-90deg);
-    -moz-animation: legbend-right 600ms infinite linear;
+    @include vendor-prefix(animation, legbend-right 600ms infinite linear)
   }
 }
 
@@ -282,7 +302,7 @@ body {
 }
 
 
-@-moz-keyframes marquee {
+@include keyframes(marquee) {
   0% { left: 0;}
   25% { left: 130px * $resolution; }
   50% { left: 0; }
@@ -290,34 +310,34 @@ body {
   100% { left: 0; }
 }
 
-@-moz-keyframes headbop {
+@include keyframes(headbop) {
   25% { transform-origin: 0 50%; transform: rotate(-10deg); }
   50% { transform: rotate(0deg); }
   75% { transform-origin: 50% 0; transform: rotate(10deg); }
 }
 
-@-moz-keyframes armbend-left {
+@include keyframes(armbend-left) {
   0% { transform: rotateX(0deg); }
   50% { transform: rotateX(180deg); }
 }
 
-@-moz-keyframes armbend-right {
+@include keyframes(armbend-right) {
   0% { transform: rotateX(180deg); }
   50% { transform: rotateX(0deg); }
 }
 
-@-moz-keyframes body-rock {
+@include keyframes(body-rock) {
   25% { transform-origin: 0 50%; transform: rotate(1deg); }
   50% { transform: rotate(0deg); }
   75% { transform-origin: 50% 0; transform: rotate(-1deg); }
 }
 
-@-moz-keyframes legbend-left {
+@include keyframes(legbend-left) {
   0% { transform: rotateX(0deg); }
   50% { transform: rotateX(-90deg); }
 }
 
-@-moz-keyframes legbend-right {
+@include keyframes(legbend-right) {
   0% { transform: rotateX(-90deg); }
   50% { transform: rotateX(0deg); }
 }
