@@ -104,7 +104,7 @@ $(function(){
       });
       
       // debug - load audio
-      console.log('audio loaded');
+      // console.log('audio loaded');
     };
     request.send();
   };
@@ -142,7 +142,7 @@ $(function(){
   $('body').keypress(function(e){
     
     // debug - print key code
-     console.log(e.which);
+    // console.log(e.which);
     
     // choose action depending on key code
     switch ( e.which ) {

@@ -1,9 +1,13 @@
-$resolution: 1.5;
+$resolution: 1;
 
-* { margin: 0; padding: 0; position: relative; }
+* {  position: relative; }
 
 body { 
-  background-color: magenta;
+  background-color: lime;
+}
+
+#controls {
+  text-align: center;
 }
 
 #room {
