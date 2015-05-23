@@ -138,5 +138,15 @@
   
   <script src="js/jquery-2.1.4.min.js" type="text/javascript"></script>
   <script src="js/bomp.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js').then(function() {
+        console.log('service worker registered');
+      }).catch(function(err) {
+        console.log('service worker registration failed: ' + err.name);
+        console.log(err);
+      });
+    }
+  </script>
 </body>
 </html>
