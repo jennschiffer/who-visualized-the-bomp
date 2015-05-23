@@ -1,12 +1,13 @@
 $(function(){
-
+  
   var DOM = {
     decor: $('#decor'),
-    dancers: $('#dancers'),
+    dancers: $('#dancers').addClass('hidden'),
     dancerLeft: $('.dancer.left'),
     dancerRight: $('.dancer.right'),
+    loading: $('#loading')
   };
-
+  
   var classes = {
     marquee: 'marquee',
     bendArms: 'bend-arms',
@@ -15,7 +16,7 @@ $(function(){
     bopHead: 'bop-head',
     fun: 'fun'
   };
-
+  
   var playSound, playNoise, dataArray, bufferLength, count;
   var midiBuffer = null;
   var noiseBuffer = null;
@@ -27,36 +28,36 @@ $(function(){
   var audioOffset = 0;
   var audioPlaying = false;
   var currentMoves = '';
-
+  
   /* hot dance moves */
-
+  
   var marquee = function(){
     DOM.dancers.toggleClass(classes.marquee);
   };
-
+  
   var bopHead = function(){
     DOM.dancers.toggleClass(classes.bopHead);
   };
-
+    
   var bendArms = function(){
     DOM.dancers.toggleClass(classes.bendArms);
   };
-
+  
   var bendLegs = function(){
     // make sure legs are stationary first
     DOM.dancers.removeClass(classes.sideKick).toggleClass(classes.bendLegs);
   };
-
+  
   var stopDancing = function(){
     // remove all classes
     DOM.dancers.attr('class', null);
     DOM.decor.attr('class', null);
   };
-
+  
   var galaxyCat = function(){
     DOM.decor.toggleClass(classes.fun);
   };
-
+  
   var airHorn = function(){
     playNoise = noiseCtx.createBufferSource();
     playNoise.buffer = airhornBuffer;
@@ -64,33 +65,39 @@ $(function(){
     playNoise.start(0);
 
   };
-
+  
   var damnSon = function(){
     playNoise = noiseCtx.createBufferSource();
     playNoise.buffer = damnBuffer;
     playNoise.connect(noiseCtx.destination);
     playNoise.start(0);
   };
-
+  
   var smooth = function(){
     playNoise = noiseCtx.createBufferSource();
     playNoise.buffer = smoothBuffer;
     playNoise.connect(noiseCtx.destination);
     playNoise.start(0);
   }
-
-
+  
+  
   /* web audio fun */
-
+  
   var loadAudio = function(url, ctx, sound) {
     var request = new XMLHttpRequest();
     request.open('GET', url, true);
     request.responseType = 'arraybuffer';
-
+  
     request.onload = function() {
       ctx.decodeAudioData(request.response, function(buffer) {
         if ( sound == 'song' ) {
           midiBuffer = buffer;
+          
+          // hide loading
+          DOM.loading.addClass('hidden');
+          // show dancers          
+          DOM.dancers.removeClass('hidden');
+          
         }
         else if ( sound == 'airhorn' ) {
             airhornBuffer = buffer;
@@ -103,8 +110,6 @@ $(function(){
             }
       });
 
-      // debug - load audio
-      // console.log('audio loaded');
     };
     request.send();
   };
@@ -115,79 +120,71 @@ $(function(){
     playSound.buffer = midiBuffer;
     playSound.connect(audioCtx.destination);
     playSound.start(0, audioOffset);
-
+        
     DOM.dancers.attr('class', currentMoves);
   };
-
+  
   var pauseSong = function(){
     playSound.stop();
     audioOffset += audioCtx.currentTime - audioTime;
     currentMoves = DOM.dancers.attr('class');
   };
-
+  
   // web audio api turn upppp
   window.AudioContext = window.AudioContext || window.webkitAudioContext;
   var audioCtx = new AudioContext();
   var noiseCtx = new AudioContext();
-
+  
   loadAudio(audioURL, audioCtx, 'song');
   loadAudio(hornURL, noiseCtx, 'airhorn');
   loadAudio(damnURL, noiseCtx, 'damn son');
   loadAudio(smoothURL, noiseCtx, 'smooth');
-
-
-
+  
+  
+  
   /* key events */
-  $('body').keydown(function(e){
-    switch( e.which ){
-      case 37:
-      case 39:
-      marquee();
-      break;
-    }
-  });
-
+  
   $('body').keypress(function(e){
-
+    
     // debug - print key code
     // console.log(e.which);
-
+    
     // choose action depending on key code
     switch ( e.which ) {
-      case 0:
-        // arrow
+      
+      case 97:
+        // a 
         marquee();
         break;
-
-
+        
       case 106:
         // j
         bopHead();
         break;
-
+        
       case 101:
         // e
         bendArms();
         break;
-
+        
       case 110:
         // n
         bendLegs();
         break;
-
+      
       case 32:
-        // space
+        // space 
         stopDancing();
         break;
-
+        
       case 102:
         // f
-        if (!audioPlaying) {
+        if (!audioPlaying) { 
           audioPlaying = true;
           playSong();
         }
         break;
-
+        
       case 114:
         // r
         if (audioPlaying) {
@@ -196,28 +193,28 @@ $(function(){
           stopDancing();
         }
         break;
-
+        
       case 115:
         // s
         if (audioPlaying) {
           galaxyCat();
         }
         break;
-
+        
       case 99:
         // c
         if (audioPlaying) {
           airHorn();
         }
         break;
-
+        
       case 104:
         // h
         if (audioPlaying) {
           damnSon();
         }
         break;
-
+        
       case 105:
         // i
         if (audioPlaying) {
@@ -225,7 +222,7 @@ $(function(){
         }
         break;
     }
-
+    
   });
 
 });

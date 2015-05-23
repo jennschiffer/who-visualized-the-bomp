@@ -1,6 +1,9 @@
 * {
   position: relative; }
 
+.hidden {
+  display: none; }
+
 body {
   background-color: lime; }
 
@@ -13,6 +16,12 @@ body {
   margin: 20px auto;
   border-bottom: 10px solid #999;
   background-color: #000; }
+  #room #loading {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 100px;
+    z-index: 10; }
   #room #decor {
     width: 90%;
     height: 100%;
