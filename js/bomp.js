@@ -138,17 +138,23 @@ $(function(){
 
 
   /* key events */
-
   $('body').keydown(function(e){
-    console.log(e.which);
+    switch( e.which ){
+      case 37:
+      case 39:
+      marquee();
+      break;
+    }
+  });
+
+  $('body').keypress(function(e){
+
     // debug - print key code
     // console.log(e.which);
 
     // choose action depending on key code
     switch ( e.which ) {
       case 0:
-      case 39:
-      case 37:
         // arrow
         marquee();
         break;
